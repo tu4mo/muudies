@@ -41,7 +41,10 @@ router.post('/authenticate', (req, res) => {
   User.findOne({
     email: req.body.email
   }, (err, user) => {
-    if (err) throw err
+    if (err) {
+      res.sendStatus(500)
+      throw err
+    }
 
     if (!user) {
       res.status(401).json({
