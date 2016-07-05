@@ -12,7 +12,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // Connect to database
-mongoose.connect(process.env.MONGODB);
+mongoose.connect(process.env.MONGODB_URI);
 
 // Set up routes
 const api = require('./routes/api')
