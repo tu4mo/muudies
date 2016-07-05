@@ -43,20 +43,28 @@ router.post('/authenticate', (req, res) => {
     if (err) throw err
 
     if (!user) {
-      res.json({ success: false, message: 'User not found.' })
+      res.status(401).json({
+        status: 'fail',
+        message: 'User not found'
+      })
     } else {
       const hashedPassword = bcrypt.hashSync(req.body.password, user.salt)
 
       if (user.password != hashedPassword) {
-        res.json({ success: false, message: 'Wrong password.' })
+        res.status(401).json({
+          status: 'fail',
+          message: 'Wrong password'
+        })
       } else {
         var token = jwt.sign({ sub: user._id }, process.env.JWT_SECRET, {
           expiresIn: '1 days'
         })
 
-        res.json({
+        res.status(200).json({
           success: true,
-          token: token
+          data: {
+            token: token
+          }
         })
       }
     }
