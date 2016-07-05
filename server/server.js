@@ -2,11 +2,15 @@
 require('dotenv').config();
 
 // Import dependencies
+const bodyParser = require('body-parser')
 const express = require('express')
 const mongoose = require('mongoose')
 
 // Initialize Express
 const app = express()
+
+// Set up body parser
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // Set up port
 const port = process.env.PORT || 3000
