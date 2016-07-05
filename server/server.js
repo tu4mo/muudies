@@ -5,9 +5,13 @@ require('dotenv').config();
 const bodyParser = require('body-parser')
 const express = require('express')
 const mongoose = require('mongoose')
+const morgan = require('morgan')
 
 // Initialize Express
 const app = express()
+
+// Use Morgan to log requests to the console
+app.use(morgan('dev'));
 
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: false }))
