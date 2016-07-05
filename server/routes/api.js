@@ -4,6 +4,7 @@ const express = require('express')
 const jwt = require('jsonwebtoken');
 
 // Require models
+const Mood = require('../models/Mood')
 const User = require('../models/User')
 
 // Set up Router
@@ -78,6 +79,27 @@ router.get('/secrets', isAuthenticated, (req, res) => {
 router.get('/', (req, res) => {
   res.end('Hello')
 })
+
+/**
+ * POST /moods
+ */
+router.post('/moods', isAuthenticated, (req, res) => {
+  const mood = req.body.mood
+
+  const newMood = new Mood({
+    user: req.jwtPayload.sub,
+    mood
+  })
+
+  newMood.save((err) => {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.sendStatus(201)
+    }
+  })
+})
+
 
 /**
  * POST /users
