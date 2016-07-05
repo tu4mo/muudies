@@ -2,14 +2,14 @@
 const express = require('express')
 
 // Set up Router
-const router = new Router()
+const router = new express.Router()
 
-router.get('/api/login', (req, res) => {
+router.get('/login', (req, res) => {
   //
 })
 
-router.get('/api/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   //
 })
 
-export default router
+module.exports = router
