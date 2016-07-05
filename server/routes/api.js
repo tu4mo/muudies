@@ -19,9 +19,7 @@ function isAuthenticated(req, res, next) {
   const parts = auth.split(' ')
   const token = parts[1]
 
-  // decode token
   if (token) {
-    // verifies secret and checks exp
     jwt.verify(token, process.env.JWT_SECRET, (err, jwtPayload) => {
       if (err) {
         return res.sendStatus(403)
