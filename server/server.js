@@ -1,4 +1,7 @@
+// Import dependencies
 const express = require('express')
+
+// Initialize Express
 const app = express()
 
 // Set up port
