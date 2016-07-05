@@ -19,8 +19,6 @@ function isAuthenticated(req, res, next) {
   const parts = auth.split(' ')
   const token = parts[1]
 
-  console.log(token)
-
   // decode token
   if (token) {
     // verifies secret and checks exp
