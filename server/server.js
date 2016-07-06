@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
+const path = require('path')
 
 // Initialize Express
 const app = express()
@@ -22,13 +23,6 @@ const port = process.env.PORT || 3000
 // Connect to database
 mongoose.connect(process.env.MONGODB_URI);
 
-// Serve static files
-app.use(express.static('dist'))
-
-// Set up routes
-const api = require('./routes/api')
-app.use('/api', api)
-
 // Set up webpack middlewares
 const webpack = require('webpack')
 const webpackConfig = require('../webpack.config')
@@ -39,6 +33,18 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }))
 
 app.use(require('webpack-hot-middleware')(compiler))
+
+// Serve static files
+app.use(express.static('dist'))
+
+// Set up routes
+const api = require('./routes/api')
+app.use('/api', api)
+
+// Serve index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../dist/index.html'))
+})
 
 // Start the server
 app.listen(port, () => {
