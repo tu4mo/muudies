@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -i client server/server.js"
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --stats",
+    "start": "nodemon -i client server/server.js",
+    "postinstall": "npm run build",
+    "production": "NODE_ENV=production node server/server.js"
   },
   "repository": {
     "type": "git",
