@@ -22,6 +22,9 @@ const port = process.env.PORT || 3000
 // Connect to database
 mongoose.connect(process.env.MONGODB_URI);
 
+// Serve static files
+app.use(express.static('dist'))
+
 // Set up routes
 const api = require('./routes/api')
 app.use('/api', api)
