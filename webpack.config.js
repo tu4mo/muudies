@@ -17,28 +17,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          plugins: [
-            'transform-class-properties',
-            [
-              'react-transform',
-              {
-                'transforms': [
-                  {
-                    'transform': 'react-transform-hmr',
-                    'imports': ['react'],
-                    'locals': ['module']
-                  }
-                ]
-              }
-            ]
-          ],
-          presets: [
-            'es2015',
-            'react'
-          ]
-        }
+        loader: 'babel'
       }
     ]
   },
