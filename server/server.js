@@ -29,6 +29,17 @@ app.use(express.static('dist'))
 const api = require('./routes/api')
 app.use('/api', api)
 
+// Set up webpack middlewares
+const webpack = require('webpack')
+const webpackConfig = require('../webpack.config')
+const compiler = webpack(webpackConfig)
+
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true, publicPath: webpackConfig.output.publicPath
+}))
+
+app.use(require('webpack-hot-middleware')(compiler))
+
 // Start the server
 app.listen(port, () => {
   console.log('Listening on port ' + port)
