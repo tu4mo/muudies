@@ -1,3 +1,4 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
@@ -28,13 +29,27 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel'
+    loaders: (function() {
+      let loaders = []
+
+      loaders.push(
+        { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+      )
+
+      if (isDev) {
+        loaders.push(
+          { test: /\.css$/, loaders: ['style', 'css'] },
+          { test: /\.scss$/, loaders: ['style', 'css', 'sass'] }
+        )
+      } else {
+        loaders.push(
+          { test: /\.css$/, loader: ExtractTextPlugin.extract(['css']) },
+          { test: /\.scss$/, loader: ExtractTextPlugin.extract(['css', 'sass']) }
+        )
       }
-    ]
+
+      return loaders
+    })()
   },
 
   plugins: (function() {
@@ -64,7 +79,8 @@ module.exports = {
           compress: {
             warnings: false
           }
-        })
+        }),
+        new ExtractTextPlugin('styles.css')
       )
     }
 
