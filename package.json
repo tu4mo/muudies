@@ -36,6 +36,7 @@
     "jsonwebtoken": "^7.0.1",
     "mongoose": "^4.5.3",
     "node-sass": "^3.8.0",
+    "rc-slider": "^3.7.3",
     "react": "^15.2.0",
     "react-dom": "^15.2.0",
     "react-router": "^2.5.2",

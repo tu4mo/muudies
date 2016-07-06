@@ -5,6 +5,7 @@ import auth from './auth'
 import App from './components/App/App'
 import Logout from './components/Logout/Logout'
 import Stats from './components/Stats/Stats'
+import './styles/base.scss'
 
 function requireAuth(nextState, replace) {
   if (!auth.loggedIn()) {
