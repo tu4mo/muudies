@@ -38,8 +38,10 @@ function isAuthenticated(req, res, next) {
  * POST /authenticate
  */
 router.post('/authenticate', (req, res) => {
+  const { email, password } = req.body
+
   User.findOne({
-    email: req.body.email
+    email
   }, (err, user) => {
     if (err) {
       res.sendStatus(500)
@@ -52,7 +54,7 @@ router.post('/authenticate', (req, res) => {
         message: 'User not found'
       })
     } else {
-      const hashedPassword = bcrypt.hashSync(req.body.password, user.salt)
+      const hashedPassword = bcrypt.hashSync(password, user.salt)
 
       if (user.password != hashedPassword) {
         res.status(401).json({
