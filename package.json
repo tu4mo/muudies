@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/tu4mo/muudies#readme",
   "devDependencies": {
+    "babel-plugin-react-transform": "^2.0.2",
     "html-webpack-plugin": "^2.22.0",
     "nodemon": "^1.9.2",
+    "react-transform-hmr": "^1.0.4",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.0"
   },

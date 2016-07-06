@@ -20,7 +20,19 @@ module.exports = {
         loader: 'babel',
         query: {
           plugins: [
-            'transform-class-properties'
+            'transform-class-properties',
+            [
+              'react-transform',
+              {
+                'transforms': [
+                  {
+                    'transform': 'react-transform-hmr',
+                    'imports': ['react'],
+                    'locals': ['module']
+                  }
+                ]
+              }
+            ]
           ],
           presets: [
             'es2015',
