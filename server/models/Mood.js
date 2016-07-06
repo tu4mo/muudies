@@ -7,8 +7,8 @@ const moodSchema = new mongoose.Schema({
   },
   mood: {
     type: Number,
-    min: 1,
-    max: 5
+    min: 0,
+    max: 100
   },
   added: {
     type: Date,
