@@ -51,5 +51,8 @@
     "react-transform-hmr": "^1.0.4",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.1"
+  },
+  "engines": {
+    "node": "6.2.2"
   }
 }
