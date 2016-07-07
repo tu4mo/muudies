@@ -1,5 +1,5 @@
 {
-  "name": "muudies",
+  "name": "muudy",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tu4mo/muudies.git"
+    "url": "git+https://github.com/tu4mo/muudy.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tu4mo/muudies/issues"
+    "url": "https://github.com/tu4mo/muudy/issues"
   },
-  "homepage": "https://github.com/tu4mo/muudies#readme",
+  "homepage": "https://github.com/tu4mo/muudy#readme",
   "dependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
