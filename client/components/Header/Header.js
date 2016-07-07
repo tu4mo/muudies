@@ -5,7 +5,7 @@ import './Header.scss'
 const Header = () => {
   return (
     <header className="header">
-      <h1 alt="Moodies">M</h1>
+      <h1 alt="Muudy">Muudy</h1>
     </header>
   )
 }

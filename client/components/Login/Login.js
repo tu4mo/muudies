@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import auth from '../../auth'
+import './Login.scss'
 
 class Login extends Component {
   constructor(props, context) {
@@ -27,8 +28,7 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>Log In</h2>
+      <form onSubmit={this.handleSubmit} className="login">
         <label>
           <input ref="email" placeholder="email" type="email" />
         </label>

@@ -1,0 +1,40 @@
+input {
+  color: #fff;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 15px;
+  padding: 5px;
+  width: 100%;
+
+  &:focus {
+    border-color: #fff;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #fff;
+    opacity: .2;
+  }
+}
+
+button[type='submit'] {
+  background-color: rgba(0, 0, 0, .1);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  margin-top: 30px;
+  padding: 15px 5px;
+  width: 100%;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, .1);
+  }
+}

@@ -1,9 +1,10 @@
 import React from 'react'
 import Login from '../Login/Login'
+import './Landing.scss'
 
 const Landing = () => {
   return (
-    <div>
+    <div className="landing">
       <Login />
     </div>
   )

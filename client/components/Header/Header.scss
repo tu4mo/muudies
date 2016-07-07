@@ -1,14 +1,16 @@
 @import '../../styles/globals';
 
 .header {
-  background-color: $color-pink;
-  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  padding: 10px 0;
 }
 
 h1 {
   color: #fff;
-  font-family: 'Nunito';
+  font-family: $font-heading;
   font-size: 40px;
+  font-weight: normal;
   line-height: 1;
   text-align: center;
+  text-transform: lowercase;
 }
