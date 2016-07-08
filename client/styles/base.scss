@@ -17,9 +17,11 @@ html, body {
 }
 
 body {
-  background: linear-gradient(10deg, $color-red , $color-orange);
+  background: linear-gradient(to left, $color-green, $color-orange, $color-red);
   background-attachment: fixed;
+  background-position: 50% 0;
   background-repeat: no-repeat;
+  background-size: 500% 100%;
 }
 
 .error {

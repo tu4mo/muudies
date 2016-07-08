@@ -17,7 +17,12 @@ class Dashboard extends Component {
   }
 
   log(value) {
+    document.body.style.backgroundPositionX = value + '%'
     console.log(value);
+  }
+
+  componentWillUnmount() {
+    document.body.style.backgroundPositionX = '0%'
   }
 
   render() {
@@ -27,6 +32,7 @@ class Dashboard extends Component {
           <Slider
             tipTransitionName="rc-slider-tooltip-zoom-down"
             onChange={this.log.bind(this)}
+            defaultValue={50}
           />
         </div>
         <button className="button button-bordered" onClick={this.handleSaveClick()}>Save</button>
