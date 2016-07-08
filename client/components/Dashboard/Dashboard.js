@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 import Slider from 'rc-slider'
 import { Link } from 'react-router'
 
-const style = {width: 600, height: 400, marginBottom: 160, marginLeft: 50, margin: '50px auto'}
-const parentStyle = {overflow: 'hidden'}
-
 import 'rc-slider/assets/index.css'
 import './Dashboard.scss'
 
 class Dashboard extends Component {
   constructor(props) {
     super(props)
+
+    this.handleSaveClick = this.handleSaveClick.bind(this)
+  }
+
+  handleSaveClick() {
+
   }
 
   log(value) {
@@ -19,13 +22,14 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        <div style={style}>
+      <div className="dashboard">
+        <div className="slider-container">
           <Slider
             tipTransitionName="rc-slider-tooltip-zoom-down"
             onChange={this.log.bind(this)}
           />
         </div>
+        <button className="button button-bordered" onClick={this.handleSaveClick()}>Save</button>
       </div>
     )
   }

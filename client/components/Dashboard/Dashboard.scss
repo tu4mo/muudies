@@ -1,0 +1,45 @@
+@import '../../styles/globals';
+
+.dashboard {
+  margin: 30px auto;
+  max-width: 600px;
+  padding: 0 30px;
+}
+
+.slider-container {
+  margin-bottom: 30px;
+}
+
+.rc-slider {
+  @include rounded;
+  background-color: #fff;
+}
+
+.rc-slider-handle {
+  border: 0;
+  height: 30px;
+  margin-top: -13px;
+  margin-left: -15px;
+  width: 30px;
+}
+
+.rc-slider-track {
+  @include rounded;
+  background-color: #fff;
+}
+
+.rc-tooltip {
+  &-inner {
+    background-color: #fff;
+    box-shadow: none;
+    font-weight: 300;
+    font-size: 20px;
+    height: 30px;
+    color: $color-orange;
+    width: 50px;
+  }
+
+  &-placement-top &-arrow {
+    border-top-color: #fff;
+  }
+}

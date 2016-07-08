@@ -2,7 +2,9 @@
 
 .button {
   @include rounded;
+  background-color: transparent;
   border: 0;
+  color: #fff;
   cursor: pointer;
   display: block;
   font-size: 20px;
@@ -11,4 +13,22 @@
   text-decoration: none;
   padding: 15px;
   width: 100%;
+
+  &-bordered {
+    border: 1px solid #fff;
+  }
+
+  &-orange {
+    background-color: $color-orange;
+    color: #fff;
+
+    &:hover {
+      background-color: $color-red;
+    }
+  }
+
+  &-white {
+    background-color: #fff;
+    color: $color-orange;
+  }
 }

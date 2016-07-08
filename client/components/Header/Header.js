@@ -12,7 +12,7 @@ class Header extends Component {
     if (this.props.loggedIn) {
       return (
         <div className="header-buttons">
-          <Link to="/logout" className="button">Log Out</Link>
+          <Link to="/logout" className="button button-white">Log Out</Link>
         </div>
       )
     }
