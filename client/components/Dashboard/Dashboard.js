@@ -22,7 +22,7 @@ class Dashboard extends Component {
   }
 
   componentWillUnmount() {
-    document.body.style.backgroundPositionX = '0%'
+    document.body.style.backgroundPositionX = '50%'
   }
 
   render() {
