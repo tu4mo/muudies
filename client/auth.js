@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 module.exports = {
   login(email, password, cb) {
     if (localStorage.token) {
