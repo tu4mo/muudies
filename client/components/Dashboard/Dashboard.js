@@ -26,7 +26,6 @@ class Dashboard extends Component {
             onChange={this.log.bind(this)}
           />
         </div>
-        <Link to="/logout">Log Out</Link>
       </div>
     )
   }

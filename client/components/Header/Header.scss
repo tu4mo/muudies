@@ -2,7 +2,20 @@
 
 .header {
   border-bottom: 1px solid rgba(255, 255, 255, .1);
-  padding: 10px 0;
+  padding: 10px;
+  position: relative;
+}
+
+.header-buttons {
+  position: absolute;
+  right: 5px;
+  top: 0;
+
+  .button {
+    background-color: #fff;
+    color: $color-orange;
+    margin-top: 5px;
+  }
 }
 
 h1 {

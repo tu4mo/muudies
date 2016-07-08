@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header loggedIn={this.state.loggedIn} />
         {this.state.loggedIn ? <Dashboard /> : <Landing />}
         {this.props.children}
       </div>

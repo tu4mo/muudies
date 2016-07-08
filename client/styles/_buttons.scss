@@ -1,0 +1,14 @@
+@import 'globals';
+
+.button {
+  @include rounded;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  text-decoration: none;
+  padding: 15px;
+  width: 100%;
+}

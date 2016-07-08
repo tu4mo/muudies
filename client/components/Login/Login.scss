@@ -6,7 +6,13 @@
   padding: 30px;
   margin: 0 auto;
 
-  input {
-
+  .button {
+    background-color: $color-orange;
+    color: #fff;
+    margin-top: 30px;
+    
+    &:hover {
+      background-color: $color-red;
+    }
   }
 }

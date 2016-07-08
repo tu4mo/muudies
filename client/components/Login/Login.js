@@ -31,7 +31,7 @@ class Login extends Component {
       <form onSubmit={this.handleSubmit} className="login">
         <input ref="email" placeholder="email" type="email" />
         <input ref="pass" placeholder="password" type="password" />
-        <button type="submit">Log In</button>
+        <button className="button" type="submit">Log In</button>
         {this.state.error && (<p className="error">Invalid username or password</p>)}
       </form>
     )

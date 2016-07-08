@@ -21,22 +21,3 @@ input {
     color: #eee;
   }
 }
-
-button[type='submit'] {
-  @include rounded;
-  background-color: $color-orange;
-  border: 0;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1;
-  margin-top: 30px;
-  padding: 15px 5px;
-  width: 100%;
-
-  &:hover {
-    background-color: $color-red;
-  }
-}
