@@ -26,6 +26,10 @@ class Header extends Component {
       </header>
     )
   }
+
+  static PropTypes = {
+    loggedIn: React.PropTypes.bool.isRequired
+  }
 }
 
 export default Header
