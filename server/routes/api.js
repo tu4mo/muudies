@@ -67,7 +67,7 @@ router.post('/authenticate', (req, res) => {
         })
 
         res.status(200).json({
-          success: true,
+          status: 'success',
           data: {
             token: token
           }
