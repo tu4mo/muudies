@@ -8,6 +8,8 @@ const webpack = require('webpack')
 const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
+  devtool: isDev ? 'eval' : 'cheap-module-source-map',
+
   entry: (function() {
     let entries = []
 
