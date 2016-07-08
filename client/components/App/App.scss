@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &-header {
+    flex: 0 1 auto;
+  }
+
+  &-body {
+    flex: 1 1 auto;
+    overflow: auto;
+    position: relative;
+  }
+}

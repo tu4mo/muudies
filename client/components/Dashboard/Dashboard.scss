@@ -1,18 +1,31 @@
 @import '../../styles/globals';
 
 .dashboard {
-  margin: 30px auto;
-  max-width: 600px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  left: 0;
   padding: 0 30px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &-content {
+    flex: 0 0 100%;
+    margin: 0 auto;
+    max-width: 600px;
+  }
 }
 
 .slider-container {
-  margin-bottom: 30px;
+  height: 120px;
+  margin-bottom: 60px;
 }
 
 .rc-slider {
   @include rounded;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, .2);
 }
 
 .rc-slider-handle {
@@ -25,7 +38,7 @@
 
 .rc-slider-track {
   @include rounded;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .rc-tooltip {

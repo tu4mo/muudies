@@ -5,6 +5,8 @@ import Dashboard from '../Dashboard/Dashboard'
 import Landing from '../Landing/Landing'
 import Header from '../Header/Header'
 
+import './App.scss'
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -26,10 +28,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header loggedIn={this.state.loggedIn} />
-        {this.state.loggedIn ? <Dashboard /> : <Landing />}
-        {this.props.children}
+      <div className="app">
+        <div className="app-header">
+          <Header loggedIn={this.state.loggedIn} />
+        </div>
+        <div className="app-body">
+          {this.state.loggedIn ? <Dashboard /> : <Landing />}
+          {this.props.children}
+        </div>
       </div>
     )
   }

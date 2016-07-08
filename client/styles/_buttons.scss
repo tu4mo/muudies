@@ -6,13 +6,12 @@
   border: 0;
   color: #fff;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   font-size: 20px;
   font-weight: 300;
   line-height: 1;
   text-decoration: none;
-  padding: 15px;
-  width: 100%;
+  padding: 15px 30px;
 
   &-bordered {
     border: 1px solid #fff;
@@ -29,6 +28,11 @@
 
   &-white {
     background-color: #fff;
-    color: $color-orange;
+    color: #666;
+  }
+
+  &-small {
+    font-size: 16px;
+    padding: 10px 15px;
   }
 }

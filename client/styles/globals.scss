@@ -1,8 +1,10 @@
 $font-heading: 'Poiret One';
 
-$color-green: #84d213;
+$color-green: #98d63f;
 $color-orange: #f45c43;
 $color-red: #eb3349;
+
+$color-gradient: linear-gradient(to left, $color-green, $color-orange, $color-red);
 
 /*
 $color-gray: #323232;
@@ -13,5 +15,5 @@ $color-gray-warm: #cddfef;
 */
 
 @mixin rounded {
-  border-radius: 2px;
+  border-radius: 3px;
 }

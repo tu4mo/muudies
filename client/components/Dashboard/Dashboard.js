@@ -28,14 +28,19 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <div className="slider-container">
-          <Slider
-            tipTransitionName="rc-slider-tooltip-zoom-down"
-            onChange={this.log.bind(this)}
-            defaultValue={50}
-          />
+        <div className="dashboard-content">
+          <div className="slider-container">
+            <h2>Rate Your Mood</h2>
+            <Slider
+              tipTransitionName="rc-slider-tooltip-zoom-down"
+              onChange={this.log.bind(this)}
+              defaultValue={50}
+            />
+          </div>
+          <p className="text-center">
+            <button className="button button-white" onClick={this.handleSaveClick()}>Save</button>
+          </p>
         </div>
-        <button className="button button-bordered" onClick={this.handleSaveClick()}>Save</button>
       </div>
     )
   }

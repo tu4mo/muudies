@@ -17,7 +17,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(to left, $color-green, $color-orange, $color-red);
+  background: $color-gradient;
   background-attachment: fixed;
   background-position: 50% 0;
   background-repeat: no-repeat;
@@ -26,5 +26,9 @@ body {
 
 .error {
   margin-top: 15px;
+  text-align: center;
+}
+
+.text-center {
   text-align: center;
 }

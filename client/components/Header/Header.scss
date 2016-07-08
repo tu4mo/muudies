@@ -3,25 +3,14 @@
 .header {
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   padding: 10px;
-  position: relative;
 }
 
 .header-buttons {
   position: absolute;
-  right: 5px;
+  right: 12px;
   top: 0;
 
   .button {
-    margin-top: 5px;
+    margin-top: 12px;
   }
-}
-
-h1 {
-  color: #fff;
-  font-family: $font-heading;
-  font-size: 40px;
-  font-weight: normal;
-  line-height: 1;
-  text-align: center;
-  text-transform: lowercase;
 }
