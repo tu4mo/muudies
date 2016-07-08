@@ -29,14 +29,10 @@ class Login extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="login">
-        <label>
-          <input ref="email" placeholder="email" type="email" />
-        </label>
-        <label>
-          <input ref="pass" placeholder="password" type="password" />
-        </label>
+        <input ref="email" placeholder="email" type="email" />
+        <input ref="pass" placeholder="password" type="password" />
         <button type="submit">Log In</button>
-        {this.state.error && (<p>Bad login information</p>)}
+        {this.state.error && (<p className="error">Invalid username or password</p>)}
       </form>
     )
   }

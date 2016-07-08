@@ -1,4 +1,12 @@
+@import '../../styles/globals';
+
 .login {
+  @include rounded;
+  background: #fff;
+  padding: 30px;
   margin: 0 auto;
-  padding: 0 30px;
+
+  input {
+
+  }
 }

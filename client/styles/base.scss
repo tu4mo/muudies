@@ -1,6 +1,7 @@
 @import 'globals';
 
 @import 'input';
+@import 'typography';
 
 * {
   box-sizing: border-box;
@@ -15,7 +16,12 @@ html, body {
 }
 
 body {
-  background: linear-gradient(10deg, #eb3349 , #f45c43);
+  background: linear-gradient(10deg, $color-red , $color-orange);
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+.error {
+  margin-top: 15px;
+  text-align: center;
 }
