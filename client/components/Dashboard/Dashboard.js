@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Slider from 'rc-slider'
 import { Link } from 'react-router'
+import 'whatwg-fetch'
 
 import 'rc-slider/assets/index.css'
 import './Dashboard.scss'
@@ -9,16 +10,51 @@ class Dashboard extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      mood: 50,
+      saveButtonTitle: 'Save'
+    }
+
+    this.handleMoodChange = this.handleMoodChange.bind(this)
     this.handleSaveClick = this.handleSaveClick.bind(this)
   }
 
-  handleSaveClick() {
-
+  handleMoodChange(value) {
+    document.body.style.backgroundPositionX = value + '%'
+    this.setState({ mood: value })
   }
 
-  log(value) {
-    document.body.style.backgroundPositionX = value + '%'
-    console.log(value);
+  handleSaveClick() {
+    this.refs.saveButton.disabled = true
+
+    fetch('/api/moods', {
+      body: `mood=${this.state.mood}`,
+      headers: {
+        'Authorization': `Bearer ${localStorage.token}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST'
+    })
+    .then((res) => {
+      if (res.ok) {
+        this.setState({ saveButtonTitle: 'Saved' })
+      } else {
+        this.setState({ saveButtonTitle: 'Error' })
+      }
+
+      this.restoreSaveButtonState()
+    })
+    .catch((err) => {
+      this.setState({ saveButtonTitle: 'Error' })
+      this.restoreSaveButtonState()
+    })
+  }
+
+  restoreSaveButtonState() {
+    setTimeout(() => {
+      this.setState({ saveButtonTitle: 'Save' })
+      this.refs.saveButton.disabled = false
+    }, 5000)
   }
 
   componentWillUnmount() {
@@ -33,12 +69,17 @@ class Dashboard extends Component {
             <h2>Rate Your Mood</h2>
             <Slider
               tipTransitionName="rc-slider-tooltip-zoom-down"
-              onChange={this.log.bind(this)}
-              defaultValue={50}
+              onChange={this.handleMoodChange}
+              value={this.state.mood}
             />
           </div>
           <p className="text-center">
-            <button className="button button-white" onClick={this.handleSaveClick()}>Save</button>
+            <button
+              ref="saveButton"
+              className="button button-white"
+              onClick={this.handleSaveClick}>
+              {this.state.saveButtonTitle}
+            </button>
           </p>
         </div>
       </div>
