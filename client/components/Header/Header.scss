@@ -14,3 +14,20 @@
     margin-top: 10px;
   }
 }
+
+.menu {
+  background-color: rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  text-align: center;
+
+  &-item {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 30px;
+
+    &-active {
+      border-bottom: 2px solid #fff;
+    }
+  }
+}

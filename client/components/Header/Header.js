@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import './Header.scss'
 
 class Header extends Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props)
   }
 
@@ -19,12 +19,30 @@ class Header extends Component {
   }
 
   render() {
+    const menuItems = [
+      { to: '/', label: 'Rate' },
+      { to: '/stats', label: 'Stats' }
+    ]
+
+    const renderedMenuItems = menuItems.map((item) => {
+      return <Link to={item.to} className={'menu-item' + (this.context.router.isActive(item.to, true) ? ' menu-item-active' : '')}>{item.label}</Link>
+    })
+
     return (
-      <header className="header">
-        <h1 alt="Muudy">Muudy</h1>
-        {this.renderHeaderButtons()}
-      </header>
+      <div>
+        <header className="header">
+          <h1 alt="Muudy">Muudy</h1>
+          {this.renderHeaderButtons()}
+        </header>
+        <nav className="menu">
+          {renderedMenuItems}
+        </nav>
+      </div>
     )
+  }
+
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
   }
 
   static PropTypes = {
