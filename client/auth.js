@@ -47,5 +47,27 @@ module.exports = {
     return !!localStorage.token
   },
 
+  signUp(email, username, password, cb) {
+    fetch('/api/users', {
+      body: `email=${email}&username=${username}&password=${password}`,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST'
+    })
+    .then((res) => {
+      if (res.ok) {
+        this.login(email, username, (success) => {
+          cb(success)
+        })
+      } else {
+        cb(false)
+      }
+    })
+    .catch((err) => {
+      cb(false)
+    })
+  },
+
   onChange() {}
 }

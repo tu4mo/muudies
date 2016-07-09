@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import auth from '../../auth'
 import Dashboard from '../Dashboard/Dashboard'
-import Landing from '../Landing/Landing'
+import Login from '../Login/Login'
 import Header from '../Header/Header'
 
 import './App.scss'
@@ -33,8 +33,7 @@ class App extends Component {
           <Header loggedIn={this.state.loggedIn} />
         </div>
         <div className="app-body">
-          {this.state.loggedIn ? <Dashboard /> : <Landing />}
-          {this.props.children}
+          {!this.props.children ? (this.state.loggedIn ? <Dashboard /> : <Login />) : this.props.children}
         </div>
       </div>
     )

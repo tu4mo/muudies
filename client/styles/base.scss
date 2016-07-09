@@ -1,5 +1,6 @@
 @import 'globals';
 
+@import 'box';
 @import 'buttons';
 @import 'input';
 @import 'typography';
@@ -31,4 +32,15 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.vertical-center {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  left: 0;
+  padding: 0 30px;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }

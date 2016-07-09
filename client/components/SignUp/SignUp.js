@@ -1,15 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import auth from '../../auth'
-import './Login.scss'
+import './SignUp.scss'
 
-class Login extends Component {
+class SignUp extends Component {
   constructor(props, context) {
     super(props)
-
-    this.state = {
-      error: false
-    }
 
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -18,11 +14,12 @@ class Login extends Component {
     event.preventDefault()
 
     const email = this.refs.email.value
-    const pass = this.refs.pass.value
+    const username = this.refs.username.value
+    const password = this.refs.password.value
 
-    auth.login(email, pass, (loggedIn) => {
-      if (!loggedIn) {
-        this.setState({ error: true })
+    auth.signUp(email, username, password, (success) => {
+      if (success) {
+        this.context.router.push('/')
       }
     })
   }
@@ -32,12 +29,12 @@ class Login extends Component {
       <div className="vertical-center">
         <form onSubmit={this.handleSubmit} className="box">
           <input ref="email" placeholder="email" type="email" />
-          <input ref="pass" placeholder="password" type="password" />
+          <input ref="username" placeholder="username" type="text" />
+          <input ref="password" placeholder="password" type="password" />
           <div className="text-center">
-            <button className="button button-orange" type="submit">Log In</button>
-            <Link to="/signup" className="button button-orange">Sign Up</Link>
+            <button className="button button-orange" type="submit">Sign Up</button>
+            <Link to="/" className="button button-orange">Cancel</Link>
           </div>
-          {this.state.error && (<p className="error">Invalid username or password</p>)}
         </form>
       </div>
     )
@@ -48,4 +45,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default SignUp

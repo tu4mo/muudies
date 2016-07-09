@@ -48,3 +48,7 @@
     padding: 10px 15px;
   }
 }
+
+.button + .button {
+  margin-left: 15px;
+}
