@@ -28,9 +28,9 @@ class SignUp extends Component {
     return (
       <div className="vertical-center">
         <form onSubmit={this.handleSubmit} className="box">
-          <input ref="email" placeholder="email" type="email" />
-          <input ref="username" placeholder="username" type="text" />
-          <input ref="password" placeholder="password" type="password" />
+          <input ref="email" placeholder="email" type="email" required />
+          <input ref="username" placeholder="username" type="text" required />
+          <input ref="password" placeholder="password" type="password" required />
           <div className="text-center">
             <button className="button button-orange" type="submit">Sign Up</button>
             <Link to="/" className="button button-orange">Cancel</Link>
