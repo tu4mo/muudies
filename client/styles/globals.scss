@@ -6,14 +6,6 @@ $color-red: #eb3349;
 
 $color-gradient: linear-gradient(to left, $color-green, $color-orange, $color-red);
 
-/*
-$color-gray: #323232;
-$color-pink: #fe0d9e;
-$color-white: #ffffff;
-$color-gray-cold: #e3ecf6;
-$color-gray-warm: #cddfef;
-*/
-
 @mixin rounded {
   border-radius: 3px;
 }
