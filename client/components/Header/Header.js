@@ -3,6 +3,11 @@ import { Link } from 'react-router'
 
 import './Header.scss'
 
+const menuItems = [
+  { to: '/', label: 'Rate' },
+  { to: '/stats', label: 'Stats' }
+]
+
 class Header extends Component {
   constructor(props, context) {
     super(props)
@@ -19,11 +24,6 @@ class Header extends Component {
   }
 
   render() {
-    const menuItems = [
-      { to: '/', label: 'Rate' },
-      { to: '/stats', label: 'Stats' }
-    ]
-
     const renderedMenuItems = menuItems.map((item) => {
       return <Link to={item.to} className={'menu-item' + (this.context.router.isActive(item.to, true) ? ' menu-item-active' : '')}>{item.label}</Link>
     })
