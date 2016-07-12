@@ -77,14 +77,6 @@ router.post('/authenticate', (req, res) => {
   })
 })
 
-router.get('/secrets', isAuthenticated, (req, res) => {
-  res.end('Secret')
-})
-
-router.get('/', (req, res) => {
-  res.end('Hello')
-})
-
 /**
  * POST /moods
  */
@@ -104,7 +96,6 @@ router.post('/moods', isAuthenticated, (req, res) => {
     }
   })
 })
-
 
 /**
  * POST /users
