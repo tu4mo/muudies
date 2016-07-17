@@ -12,7 +12,7 @@ const path = require('path')
 const app = express()
 
 // Use Morgan to log requests to the console
-app.use(morgan('dev'));
+app.use(morgan('dev'))
 
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 const port = process.env.PORT || 3000
 
 // Connect to database
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI)
 
 // Set up webpack middlewares
 if (process.env.NODE_ENV !== 'production') {
