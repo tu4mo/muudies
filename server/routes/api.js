@@ -54,14 +54,7 @@ router.post('/authenticate', (req, res) => {
         message: 'User not found'
       })
     } else {
-      const hashedPassword = bcrypt.hashSync(password, user.salt)
-
-      if (user.password != hashedPassword) {
-        res.status(401).json({
-          status: 'fail',
-          message: 'Wrong password'
-        })
-      } else {
+      if (bcrypt.compareSync(password, user.password)) {
         var token = jwt.sign({ sub: user._id }, process.env.JWT_SECRET, {
           expiresIn: '1 days'
         })
@@ -71,6 +64,11 @@ router.post('/authenticate', (req, res) => {
           data: {
             token: token
           }
+        })
+      } else {
+        res.status(401).json({
+          status: 'fail',
+          message: 'Wrong password'
         })
       }
     }
@@ -111,8 +109,7 @@ router.post('/users', (req, res) => {
   const newUser = new User({
     email,
     username,
-    password: hash,
-    salt
+    password: hash
   })
 
   // Save new user
