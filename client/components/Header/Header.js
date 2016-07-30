@@ -34,9 +34,7 @@ class Header extends Component {
           <h1 alt="Muudy">Muudy</h1>
           {this.renderHeaderButtons()}
         </header>
-        <nav className="menu">
-          {renderedMenuItems}
-        </nav>
+        {this.props.loggedIn && <nav className="menu">{renderedMenuItems}</nav>}
       </div>
     )
   }
