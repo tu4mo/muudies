@@ -25,7 +25,7 @@ class Header extends Component {
 
   render() {
     const renderedMenuItems = menuItems.map((item) => {
-      return <Link to={item.to} className={'menu-item' + (this.context.router.isActive(item.to, true) ? ' menu-item-active' : '')}>{item.label}</Link>
+      return <Link key={item.to} to={item.to} className={'menu-item' + (this.context.router.isActive(item.to, true) ? ' menu-item-active' : '')}>{item.label}</Link>
     })
 
     return (
