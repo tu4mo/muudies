@@ -76,6 +76,18 @@ router.post('/authenticate', (req, res) => {
 })
 
 /**
+ * GET /moods
+ */
+
+router.get('/moods', isAuthenticated, (req, res) => {
+  Mood.find({ user: req.jwtPayload.sub }, '-_id mood added', (err, docs) => {
+    if (err) return res.status(500).send(err)
+    res.json(docs)
+  })
+})
+
+
+/**
  * POST /moods
  */
 router.post('/moods', isAuthenticated, (req, res) => {
