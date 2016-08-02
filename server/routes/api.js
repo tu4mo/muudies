@@ -20,18 +20,19 @@ function isAuthenticated(req, res, next) {
   const parts = auth.split(' ')
   const token = parts[1]
 
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, (err, jwtPayload) => {
-      if (err) {
-        return res.sendStatus(403)
-      } else {
-        req.jwtPayload = jwtPayload
-        next()
-      }
-    })
-  } else {
+  if (!token) {
     return res.sendStatus(403)
   }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, jwtPayload) => {
+    if (err) {
+      return res.sendStatus(403)
+    }
+
+    req.jwtPayload = jwtPayload
+
+    next()
+  })
 }
 
 /**
@@ -49,29 +50,29 @@ router.post('/authenticate', (req, res) => {
     }
 
     if (!user) {
-      res.status(401).json({
+      return res.status(401).json({
         status: 'fail',
         message: 'User not found'
       })
-    } else {
-      if (bcrypt.compareSync(password, user.password)) {
-        var token = jwt.sign({ sub: user._id }, process.env.JWT_SECRET, {
-          expiresIn: '1 days'
-        })
-
-        res.status(200).json({
-          status: 'success',
-          data: {
-            token: token
-          }
-        })
-      } else {
-        res.status(401).json({
-          status: 'fail',
-          message: 'Wrong password'
-        })
-      }
     }
+
+    if (!bcrypt.compareSync(password, user.password)) {
+      return res.status(401).json({
+        status: 'fail',
+        message: 'Wrong password'
+      })
+    }
+
+    const token = jwt.sign({ sub: user._id }, process.env.JWT_SECRET, {
+      expiresIn: '1 days'
+    })
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        token: token
+      }
+    })
   })
 })
 
@@ -86,7 +87,6 @@ router.get('/moods', isAuthenticated, (req, res) => {
   })
 })
 
-
 /**
  * POST /moods
  */
@@ -100,10 +100,10 @@ router.post('/moods', isAuthenticated, (req, res) => {
 
   newMood.save((err) => {
     if (err) {
-      res.status(500).send(err)
-    } else {
-      res.sendStatus(201)
+      return res.status(500).send(err)
     }
+
+    res.sendStatus(201)
   })
 })
 
@@ -127,10 +127,10 @@ router.post('/users', (req, res) => {
   // Save new user
   newUser.save((err) => {
     if (err) {
-      res.sendStatus(409)
-    } else {
-      res.sendStatus(201)
+      return res.sendStatus(409)
     }
+
+    res.sendStatus(201)
   })
 })
 
