@@ -85,6 +85,7 @@ router.get('/moods', isAuthenticated, (req, res) => {
   let fromDate = new Date()
   fromDate.setDate(fromDate.getDate() - 7)
 
+  // Get user's moods from last 7 days, grouped by date
   Mood.aggregate([
     {
       $match: {
@@ -101,15 +102,12 @@ router.get('/moods', isAuthenticated, (req, res) => {
         mood: { $avg: '$mood' }
       }
     }
-  ], (err, docs) => {
+  ], (err, moods) => {
     if (err) {
-      console.error(err)
-      res.status(500).send(err)
-      return
+      return res.status(500).send(err)
     }
 
-    console.log(docs)
-    res.json(docs)
+    res.json(moods)
   })
 })
 
@@ -119,11 +117,13 @@ router.get('/moods', isAuthenticated, (req, res) => {
 router.post('/moods', isAuthenticated, (req, res) => {
   const mood = req.body.mood
 
+  // Create new mood
   const newMood = new Mood({
     user: req.jwtPayload.sub,
     mood
   })
 
+  // Save new mood
   newMood.save((err) => {
     if (err) {
       return res.status(500).send(err)
