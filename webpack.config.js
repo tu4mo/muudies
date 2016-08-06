@@ -1,5 +1,6 @@
 'use strict'
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
@@ -62,6 +63,11 @@ module.exports = {
     plugins.push(
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.NoErrorsPlugin(),
+      new CopyWebpackPlugin([
+        { from: 'client/images/favicon.png', to: 'images' }
+      ], {
+        copyUnmodified: true
+      }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, './client/index.html')
       })
