@@ -2,6 +2,7 @@
 const bcrypt = require('bcrypt')
 const express = require('express')
 const jwt = require('jsonwebtoken')
+const mongoose = require('mongoose')
 
 // Require models
 const Mood = require('../models/Mood')
@@ -79,10 +80,35 @@ router.post('/authenticate', (req, res) => {
 /**
  * GET /moods
  */
-
 router.get('/moods', isAuthenticated, (req, res) => {
-  Mood.find({ user: req.jwtPayload.sub }, '-_id mood added', (err, docs) => {
-    if (err) return res.status(500).send(err)
+  // Get date from 7 days ago
+  let fromDate = new Date()
+  fromDate.setDate(fromDate.getDate() - 7)
+
+  Mood.aggregate([
+    {
+      $match: {
+        user: mongoose.Types.ObjectId(req.jwtPayload.sub),
+        added: { $gte: fromDate }
+      }
+    }, {
+      $group: {
+        _id: {
+          $dateToString: {
+            format: '%Y-%m-%d', date: '$added'
+          }
+        },
+        mood: { $avg: '$mood' }
+      }
+    }
+  ], (err, docs) => {
+    if (err) {
+      console.error(err)
+      res.status(500).send(err)
+      return
+    }
+
+    console.log(docs)
     res.json(docs)
   })
 })

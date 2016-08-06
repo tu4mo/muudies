@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Stats from '../Stats/Stats'
 import Slider from 'rc-slider'
 import { Link } from 'react-router'
 import 'whatwg-fetch'
@@ -63,24 +64,27 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="dashboard">
-        <div className="dashboard-content">
-          <div className="slider-container">
-            <h2>Rate Your Mood</h2>
-            <Slider
-              tipTransitionName="rc-slider-tooltip-zoom-down"
-              onChange={this.handleMoodChange}
-              value={this.state.mood}
-            />
+      <div>
+        <Stats />
+        <div className="dashboard">
+          <div className="dashboard-content">
+            <div className="slider-container">
+              <h2>Rate Your Mood</h2>
+              <Slider
+                tipTransitionName="rc-slider-tooltip-zoom-down"
+                onChange={this.handleMoodChange}
+                value={this.state.mood}
+              />
+            </div>
+            <p className="text-center">
+              <button
+                ref="saveButton"
+                className="button button-white"
+                onClick={this.handleSaveClick}>
+                {this.state.saveButtonTitle}
+              </button>
+            </p>
           </div>
-          <p className="text-center">
-            <button
-              ref="saveButton"
-              className="button button-white"
-              onClick={this.handleSaveClick}>
-              {this.state.saveButtonTitle}
-            </button>
-          </p>
         </div>
       </div>
     )
