@@ -1,7 +1,7 @@
 // Require dependencies
 const bcrypt = require('bcrypt')
 const express = require('express')
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 
 // Require models
 const Mood = require('../models/Mood')
