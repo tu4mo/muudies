@@ -52,6 +52,7 @@
     "babel-plugin-react-transform": "^2.0.2",
     "nodemon": "^1.10.0",
     "react-transform-hmr": "^1.0.4",
+    "standard": "^7.1.2",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"
   },
