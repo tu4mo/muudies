@@ -48,7 +48,7 @@ class Stats extends Component {
 
       return (
         <div className="stat" key={day}>
-          <div className="stat__bar" style={{ height: `${mood}%`, backgroundPositionY: `${mood}%` }}>
+          <div className="stat__bar" style={{ height: `${mood}%`, backgroundPositionY: `${100-mood}%` }}>
             <div className="stat__number">{mood}</div>
           </div>
           <div className="stat__title">

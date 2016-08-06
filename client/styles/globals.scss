@@ -5,7 +5,7 @@ $color-orange: #f45c43;
 $color-red: #eb3349;
 
 $color-gradient: linear-gradient(to left, $color-green, $color-orange, $color-red);
-$color-gradient-vertical: linear-gradient(to top, $color-green, $color-orange, $color-red);
+$color-gradient-vertical: linear-gradient(to bottom, $color-green, $color-orange, $color-red);
 
 @mixin rounded {
   border-radius: 3px;
