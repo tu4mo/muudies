@@ -11,10 +11,15 @@
   font-weight: 300;
   line-height: 1;
   text-decoration: none;
+  transition: background-color .2s ease-out, transform .2s ease-out;
   padding: 15px 30px;
 
   &:active {
     opacity: .9;
+  }
+
+  &:hover {
+    transform: scale(1.08);
   }
 
   &[disabled] {
