@@ -3,7 +3,7 @@ import moment from 'moment'
 import './Stats.scss'
 
 class Stats extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -13,7 +13,7 @@ class Stats extends Component {
     this.getStats()
   }
 
-  getStats () {
+  getStats() {
     fetch('/api/moods', {
       headers: {
         'Authorization': `Bearer ${localStorage.token}`,
@@ -54,14 +54,14 @@ class Stats extends Component {
           <div className="stat__title">
             {`${moment(day).format('ddd')}`}
             <br />
-            {`${moment(day).date()}.${moment(day).month() + 1}.`}
+            {moment(day).format('D.M.')}
           </div>
         </div>
       )
     })
   }
 
-  render () {
+  render() {
     return (
       <div className="stats">
         {this.renderStats()}
