@@ -52,6 +52,8 @@ class Stats extends Component {
             <div className="stat__number">{mood}</div>
           </div>
           <div className="stat__title">
+            {`${moment(day).format('ddd')}`}
+            <br />
             {`${moment(day).date()}.${moment(day).month() + 1}.`}
           </div>
         </div>
