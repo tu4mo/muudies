@@ -24,16 +24,18 @@
 }
 
 .rc-slider {
-  @include rounded;
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 4px;
+  height: 8px;
 }
 
 .rc-slider-handle {
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, .05);
   border: 0;
-  height: 30px;
-  margin-top: -13px;
-  margin-left: -15px;
-  width: 30px;
+  height: 40px;
+  margin-top: -16px;
+  margin-left: -20px;
+  width: 40px;
 }
 
 .rc-slider-track {
