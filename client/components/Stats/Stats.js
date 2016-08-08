@@ -35,7 +35,7 @@ class Stats extends Component {
   renderStats() {
     const toDate = new Date()
     const fromDate = new Date()
-    let lastSevenDays = []
+    const lastSevenDays = []
 
     fromDate.setDate(fromDate.getDate() - 6)
 
