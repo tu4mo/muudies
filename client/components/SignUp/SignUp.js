@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import auth from '../../auth'
+
 import './SignUp.scss'
 
 class SignUp extends Component {
