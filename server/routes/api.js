@@ -8,33 +8,11 @@ const mongoose = require('mongoose')
 const Mood = require('../models/Mood')
 const User = require('../models/User')
 
+// Require middleware
+const isAuthenticated = require('../middleware/isAuthenticated')
+
 // Set up Router
 const router = new express.Router()
-
-function isAuthenticated(req, res, next) {
-  const auth = req.headers['authorization']
-
-  if (!auth) {
-    return res.sendStatus(403)
-  }
-
-  const parts = auth.split(' ')
-  const token = parts[1]
-
-  if (!token) {
-    return res.sendStatus(403)
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, jwtPayload) => {
-    if (err) {
-      return res.sendStatus(403)
-    }
-
-    req.jwtPayload = jwtPayload
-
-    next()
-  })
-}
 
 /**
  * POST /authenticate
