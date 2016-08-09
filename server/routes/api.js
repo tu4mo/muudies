@@ -44,12 +44,8 @@ router.post('/authenticate', (req, res) => {
 
   User.findOne({
     email
-  }, (err, user) => {
-    if (err) {
-      res.sendStatus(500)
-      throw err
-    }
-
+  })
+  .then((user) => {
     if (!user) {
       return res.status(401).json({
         status: 'fail',
@@ -74,6 +70,10 @@ router.post('/authenticate', (req, res) => {
         token: token
       }
     })
+  })
+  .catch((err) => {
+    res.sendStatus(500)
+    throw err
   })
 })
 
