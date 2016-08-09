@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React, { Component, PropTypes } from 'react'
 import auth from '../../auth'
 import Dashboard from '../Dashboard/Dashboard'
 import Login from '../Login/Login'
@@ -8,7 +7,7 @@ import Header from '../Header/Header'
 import './App.scss'
 
 class App extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -16,17 +15,17 @@ class App extends Component {
     }
   }
 
-  updateAuth(loggedIn) {
+  updateAuth (loggedIn) {
     this.setState({
       loggedIn
     })
   }
 
-  componentWillMount() {
+  componentWillMount () {
     auth.onChange = this.updateAuth.bind(this)
   }
 
-  render() {
+  render () {
     return (
       <div className="app">
         <div className="app-header">
@@ -37,6 +36,10 @@ class App extends Component {
         </div>
       </div>
     )
+  }
+
+  static propTypes = {
+    children: PropTypes.node
   }
 }
 

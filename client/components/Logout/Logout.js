@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import auth from '../../auth'
 
 class Logout extends Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props)
   }
 
-  componentWillMount() {
+  componentWillMount () {
     auth.logout()
     this.context.router.push('/')
   }
 
-  render() {
+  render () {
     return <p>Logging out...</p>
   }
 
   static contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
   }
 }
 

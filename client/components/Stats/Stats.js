@@ -4,7 +4,7 @@ import moment from 'moment'
 import './Stats.scss'
 
 class Stats extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -14,7 +14,7 @@ class Stats extends Component {
     this.getStats()
   }
 
-  getStats() {
+  getStats () {
     fetch('/api/moods', {
       headers: {
         'Authorization': `Bearer ${localStorage.token}`,
@@ -33,7 +33,7 @@ class Stats extends Component {
     })
   }
 
-  renderStats() {
+  renderStats () {
     const toDate = new Date()
     const fromDate = new Date()
     const lastSevenDays = []
@@ -49,7 +49,7 @@ class Stats extends Component {
 
       return (
         <div className="stat" key={day}>
-          <div className="stat__bar" style={{ height: `${mood}%`, backgroundPositionY: `${100-mood}%` }}>
+          <div className="stat__bar" style={{ height: `${mood}%`, backgroundPositionY: `${100 - mood}%` }}>
             <div className="stat__number">{mood}</div>
           </div>
           <div className="stat__title">
@@ -62,7 +62,7 @@ class Stats extends Component {
     })
   }
 
-  render() {
+  render () {
     return (
       <div className="stats">
         {this.renderStats()}

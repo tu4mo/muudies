@@ -5,13 +5,13 @@ import auth from '../../auth'
 import './SignUp.scss'
 
 class SignUp extends Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props)
 
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit(event) {
+  handleSubmit (event) {
     event.preventDefault()
 
     const email = this.refs.email.value
@@ -25,7 +25,7 @@ class SignUp extends Component {
     })
   }
 
-  render() {
+  render () {
     return (
       <div className="vertical-center">
         <form onSubmit={this.handleSubmit} className="box">
@@ -42,7 +42,7 @@ class SignUp extends Component {
   }
 
   static contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
   }
 }
 

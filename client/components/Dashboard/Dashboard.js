@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import Stats from '../Stats/Stats'
 import Slider from 'rc-slider'
-import { Link } from 'react-router'
 import 'whatwg-fetch'
 
 import 'rc-slider/assets/index.css'
 import './Dashboard.scss'
 
 class Dashboard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -20,12 +19,12 @@ class Dashboard extends Component {
     this.handleSaveClick = this.handleSaveClick.bind(this)
   }
 
-  handleMoodChange(value) {
+  handleMoodChange (value) {
     document.body.style.backgroundPositionX = value + '%'
     this.setState({ mood: value })
   }
 
-  handleSaveClick() {
+  handleSaveClick () {
     this.refs.saveButton.disabled = true
 
     fetch('/api/moods', {
@@ -51,18 +50,18 @@ class Dashboard extends Component {
     })
   }
 
-  restoreSaveButtonState() {
+  restoreSaveButtonState () {
     setTimeout(() => {
       this.setState({ saveButtonTitle: 'Save' })
       this.refs.saveButton.disabled = false
     }, 5000)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.body.style.backgroundPositionX = '50%'
   }
 
-  render() {
+  render () {
     return (
       <div>
         <Stats />

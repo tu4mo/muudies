@@ -1,7 +1,7 @@
 import 'whatwg-fetch'
 
 module.exports = {
-  login(email, password, cb) {
+  login (email, password, cb) {
     if (localStorage.token) {
       cb(true)
       this.onChange(true)
@@ -33,21 +33,21 @@ module.exports = {
     })
   },
 
-  getToken() {
+  getToken () {
     return localStorage.token
   },
 
-  logout(cb) {
+  logout (cb) {
     delete localStorage.token
     if (cb) cb()
     this.onChange(false)
   },
 
-  loggedIn() {
+  loggedIn () {
     return !!localStorage.token
   },
 
-  signUp(email, username, password, cb) {
+  signUp (email, username, password, cb) {
     fetch('/api/users', {
       body: `email=${email}&username=${username}&password=${password}`,
       headers: {
@@ -69,5 +69,5 @@ module.exports = {
     })
   },
 
-  onChange() {}
+  onChange () {}
 }

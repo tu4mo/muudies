@@ -1,19 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 
 import './Header.scss'
 
+/*
 const menuItems = [
   { to: '/', label: 'Rate' },
   { to: '/stats', label: 'Stats' }
 ]
+*/
 
 class Header extends Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props)
   }
 
-  renderHeaderButtons() {
+  renderHeaderButtons () {
     if (this.props.loggedIn) {
       return (
         <div className="header-buttons">
@@ -23,10 +25,12 @@ class Header extends Component {
     }
   }
 
-  render() {
+  render () {
+    /*
     const renderedMenuItems = menuItems.map((item) => {
       return <Link key={item.to} to={item.to} className={'menu-item' + (this.context.router.isActive(item.to, true) ? ' menu-item-active' : '')}>{item.label}</Link>
     })
+    */
 
     return (
       <div>
@@ -40,11 +44,11 @@ class Header extends Component {
   }
 
   static contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
   }
 
-  static PropTypes = {
-    loggedIn: React.PropTypes.bool.isRequired
+  static propTypes = {
+    loggedIn: PropTypes.bool.isRequired
   }
 }
 
