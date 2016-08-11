@@ -34,7 +34,7 @@
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
-    "jsonwebtoken": "^7.1.7",
+    "jsonwebtoken": "^7.1.9",
     "moment": "^2.14.1",
     "mongoose": "^4.5.8",
     "morgan": "^1.7.0",
@@ -60,7 +60,6 @@
     "eslint-plugin-standard": "^2.0.0",
     "nodemon": "^1.10.0",
     "react-transform-hmr": "^1.0.4",
-    "standard": "^7.1.2",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"
   },
