@@ -11,7 +11,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 module.exports = {
   devtool: isDev ? 'eval' : 'cheap-module-source-map',
 
-  entry: (function() {
+  entry: (function () {
     let entries = []
 
     if (isDev) {
@@ -34,7 +34,7 @@ module.exports = {
   },
 
   module: {
-    loaders: (function() {
+    loaders: (function () {
       let loaders = []
 
       loaders.push(
@@ -57,7 +57,7 @@ module.exports = {
     })()
   },
 
-  plugins: (function() {
+  plugins: (function () {
     let plugins = []
 
     plugins.push(
