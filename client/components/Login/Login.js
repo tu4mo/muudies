@@ -32,11 +32,11 @@ class Login extends Component {
     return (
       <div className="vertical-center">
         <form onSubmit={this.handleSubmit} className="box">
-          <input ref="email" placeholder="email" type="email" />
-          <input ref="pass" placeholder="password" type="password" />
+          <input ref="email" placeholder="email" type="email" required />
+          <input ref="pass" placeholder="password" type="password" required />
           <div className="text-center">
-            <button className="button button-orange" type="submit">Log In</button>
-            <Link to="/signup" className="button button-orange">Sign Up</Link>
+            <button className="button button--orange" type="submit">Log In</button>
+            <Link to="/signup" className="button button--orange">Sign Up</Link>
           </div>
           {this.state.error && (<p className="error">Invalid username or password</p>)}
         </form>

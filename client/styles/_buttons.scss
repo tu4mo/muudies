@@ -18,19 +18,15 @@
     opacity: .9;
   }
 
-  &:hover {
-    transform: scale(1.08);
-  }
-
   &[disabled] {
     cursor: default;
   }
 
-  &-bordered {
+  &--bordered {
     border: 2px solid #fff;
   }
 
-  &-orange {
+  &--orange {
     background-color: $color-orange;
     color: #fff;
 
@@ -39,7 +35,7 @@
     }
   }
 
-  &-white {
+  &--white {
     background-color: #fff;
     color: #666;
 
@@ -48,9 +44,15 @@
     }
   }
 
-  &-small {
+  &--small {
     font-size: 16px;
     padding: 10px 15px;
+  }
+
+  &--animated {
+    &:hover {
+      transform: scale(1.08);
+    }
   }
 }
 

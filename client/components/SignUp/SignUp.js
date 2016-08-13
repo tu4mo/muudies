@@ -33,8 +33,8 @@ class SignUp extends Component {
           <input ref="username" placeholder="username" type="text" required />
           <input ref="password" placeholder="password" type="password" required />
           <div className="text-center">
-            <button className="button button-orange" type="submit">Sign Up</button>
-            <Link to="/" className="button button-orange">Cancel</Link>
+            <button className="button button--orange" type="submit">Sign Up</button>
+            <Link to="/" className="button button--orange">Cancel</Link>
           </div>
         </form>
       </div>

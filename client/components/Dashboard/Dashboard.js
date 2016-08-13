@@ -78,7 +78,7 @@ class Dashboard extends Component {
             <p className="text-center">
               <button
                 ref="saveButton"
-                className="button button-white"
+                className="button button--white button--animated"
                 onClick={this.handleSaveClick}>
                 {this.state.saveButtonTitle}
               </button>
