@@ -1,22 +1,22 @@
 {
-  "presets": ["react", "es2015"],
+  "presets": ["react", "es2015", "stage-3"],
   "plugins": [
-    "transform-class-properties"
+    ["transform-class-properties"],
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
   ],
   "env": {
     "development": {
       "plugins": [
-        [
-          "react-transform", {
-            "transforms": [
-              {
-                "transform": "react-transform-hmr",
-                "imports": ["react"],
-                "locals": ["module"]
-              }
-            ]
-          }
-        ]
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-hmr",
+            "imports": ["react"],
+            "locals": ["module"]
+          }]
+        }]
       ]
     }
   }
