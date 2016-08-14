@@ -24,10 +24,10 @@ class Dashboard extends Component {
     this.setState({ mood: value })
   }
 
-  handleSaveClick () {
+  async handleSaveClick () {
     this.refs.saveButton.disabled = true
 
-    fetch('/api/moods', {
+    const res = await fetch('/api/moods', {
       body: `mood=${this.state.mood}`,
       headers: {
         'Authorization': `Bearer ${localStorage.token}`,
@@ -35,19 +35,14 @@ class Dashboard extends Component {
       },
       method: 'POST'
     })
-    .then((res) => {
-      if (res.ok) {
-        this.setState({ saveButtonTitle: 'Saved' })
-      } else {
-        this.setState({ saveButtonTitle: 'Error' })
-      }
 
-      this.restoreSaveButtonState()
-    })
-    .catch((err) => {
+    if (res.ok) {
+      this.setState({ saveButtonTitle: 'Saved' })
+    } else {
       this.setState({ saveButtonTitle: 'Error' })
-      this.restoreSaveButtonState()
-    })
+    }
+
+    this.restoreSaveButtonState()
   }
 
   restoreSaveButtonState () {
