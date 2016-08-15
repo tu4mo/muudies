@@ -1,36 +1,30 @@
 import 'whatwg-fetch'
 
 module.exports = {
-  login (email, password, cb) {
+  async login (email, password, cb) {
     if (localStorage.token) {
       cb(true)
       this.onChange(true)
       return
     }
 
-    fetch('/api/authenticate', {
+    const res = await fetch('/api/authenticate', {
       body: `email=${email}&password=${password}`,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'POST'
     })
-    .then((res) => {
-      if (res.ok) {
-        res.json().then((json) => {
-          localStorage.token = json.data.token
-          cb(true)
-          this.onChange(true)
-        })
-      } else {
-        cb(false)
-        this.onChange(false)
-      }
-    })
-    .catch((err) => {
+
+    if (res.ok) {
+      const json = await res.json()
+      localStorage.token = json.data.token
+      cb(true)
+      this.onChange(true)
+    } else {
       cb(false)
       this.onChange(false)
-    })
+    }
   },
 
   getToken () {
@@ -47,26 +41,22 @@ module.exports = {
     return !!localStorage.token
   },
 
-  signUp (email, username, password, cb) {
-    fetch('/api/users', {
+  async signUp (email, username, password, cb) {
+    const res = await fetch('/api/users', {
       body: `email=${email}&username=${username}&password=${password}`,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'POST'
     })
-    .then((res) => {
-      if (res.ok) {
-        this.login(email, username, (success) => {
-          cb(success)
-        })
-      } else {
-        cb(false)
-      }
-    })
-    .catch((err) => {
+
+    if (res.ok) {
+      this.login(email, username, (success) => {
+        cb(success)
+      })
+    } else {
       cb(false)
-    })
+    }
   },
 
   onChange () {}
