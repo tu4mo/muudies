@@ -30,8 +30,8 @@ class Login extends Component {
 
   render () {
     return (
-      <div className="vertical-center">
-        <form onSubmit={this.handleSubmit} className="box">
+      <div className="login-box-container vertical-center">
+        <form onSubmit={this.handleSubmit} className="box login-box-animation">
           <input ref="email" placeholder="email" type="email" required />
           <input ref="pass" placeholder="password" type="password" required />
           <div className="text-center">
