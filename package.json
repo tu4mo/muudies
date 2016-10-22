@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --stats",
     "start": "nodemon -i client server/server.js",
-    "postinstall": "npm run build",
+    "postinstall": "yarn run build",
     "production": "NODE_ENV=production node server/server.js"
   },
   "repository": {
@@ -47,7 +47,8 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^1.0.0",
+    "yarn": "^0.16.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
