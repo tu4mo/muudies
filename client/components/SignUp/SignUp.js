@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import Button from '../Button/Button'
+import { browserHistory } from 'react-router'
 import auth from '../../auth'
 
 import './SignUp.scss'
@@ -33,8 +34,8 @@ class SignUp extends Component {
           <input ref="username" placeholder="username" type="text" required />
           <input ref="password" placeholder="password" type="password" required />
           <div className="text-center">
-            <button className="button button--orange" type="submit">Sign Up</button>
-            <Link to="/" className="button button--orange">Cancel</Link>
+            <Button style="orange" type="submit">Sign Up</Button>
+            <Button onClick={() => browserHistory.push('/')} style="orange">Cancel</Button>
           </div>
         </form>
       </div>

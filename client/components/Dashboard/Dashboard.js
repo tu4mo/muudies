@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '../Button/Button'
 import Stats from '../Stats/Stats'
 import Slider from 'rc-slider'
 import 'whatwg-fetch'
@@ -71,12 +72,12 @@ class Dashboard extends Component {
               />
             </div>
             <p className="text-center">
-              <button
-                className="button button--white button--animated"
+              <Button
+                style="white animated"
                 disabled={this.state.saveButtonDisabled}
                 onClick={this.handleSaveClick}>
                 {this.state.saveButtonTitle}
-              </button>
+              </Button>
             </p>
           </div>
         </div>

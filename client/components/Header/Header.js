@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
+import Button from '../Button/Button'
 
 import './Header.scss'
 
@@ -19,7 +20,12 @@ class Header extends Component {
     if (this.props.loggedIn) {
       return (
         <div className="header-buttons">
-          <Link to="/logout" className="button button--bordered button--small">Log Out</Link>
+          <Button
+            onClick={() => browserHistory.push('/logout')}
+            style="bordered small"
+          >
+            Log Out
+          </Button>
         </div>
       )
     }
