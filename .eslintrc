@@ -4,5 +4,8 @@
     "node": true
   },
   "extends": ["standard", "standard-react"],
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "rules": {
+    "jsx-quotes": ["error", "prefer-double"]
+  }
 }
