@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --stats",
-    "start": "nodemon -i client server/server.js",
-    "postinstall": "yarn run build",
-    "production": "NODE_ENV=production node server/server.js"
+    "dev": "NODE_ENV=development nodemon -i client server/server.js",
+    "build": "./node_modules/.bin/webpack --progress --stats",
+    "start": "node server/server.js",
+    "postinstall": "yarn run build"
   },
   "repository": {
     "type": "git",

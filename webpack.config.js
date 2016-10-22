@@ -6,10 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
 
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-  devtool: isDev ? 'eval' : 'cheap-module-source-map',
+  devtool: isDev ? 'eval' : '',
 
   entry: (function () {
     let entries = []

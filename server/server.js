@@ -27,7 +27,7 @@ const port = process.env.PORT || 3000
 mongoose.connect(process.env.MONGODB_URI)
 
 // Set up webpack middlewares
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   const webpack = require('webpack')
   const webpackConfig = require('../webpack.config')
   const compiler = webpack(webpackConfig)
