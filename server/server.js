@@ -8,6 +8,9 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const path = require('path')
 
+// Set mongoose promises to use ES6 promises
+mongoose.Promise = global.Promise
+
 // Initialize Express
 const app = express()
 
