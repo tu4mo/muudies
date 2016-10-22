@@ -53,9 +53,12 @@ class Stats extends Component {
             <div className="stat__number">{mood}</div>
           </div>
           <div className="stat__title">
-            {moment(day).format('ddd')}
-            <br />
-            {moment(day).format('D.M.')}
+            <div className="stat__weekday">
+              {moment(day).format('ddd')}
+            </div>
+            <div className="stat__date">
+              {moment(day).format('D.M.')}
+            </div>
           </div>
         </div>
       )
