@@ -12,20 +12,18 @@ class Dashboard extends Component {
 
     this.state = {
       mood: 50,
+      saveButtonDisabled: false,
       saveButtonTitle: 'Save'
     }
-
-    this.handleMoodChange = this.handleMoodChange.bind(this)
-    this.handleSaveClick = this.handleSaveClick.bind(this)
   }
 
-  handleMoodChange (value) {
+  handleMoodChange = (value) => {
     document.body.style.backgroundPositionX = value + '%'
     this.setState({ mood: value })
   }
 
-  async handleSaveClick () {
-    this.refs.saveButton.disabled = true
+  handleSaveClick = async () => {
+    this.setState({ saveButtonDisabled: true })
 
     const res = await fetch('/api/moods', {
       body: `mood=${this.state.mood}`,
@@ -47,8 +45,10 @@ class Dashboard extends Component {
 
   restoreSaveButtonState () {
     setTimeout(() => {
-      this.setState({ saveButtonTitle: 'Save' })
-      this.refs.saveButton.disabled = false
+      this.setState({
+        saveButtonDisabled: false,
+        saveButtonTitle: 'Save'
+      })
     }, 5000)
   }
 
@@ -72,8 +72,8 @@ class Dashboard extends Component {
             </div>
             <p className="text-center">
               <button
-                ref="saveButton"
                 className="button button--white button--animated"
+                disabled={this.state.saveButtonDisabled}
                 onClick={this.handleSaveClick}>
                 {this.state.saveButtonTitle}
               </button>
