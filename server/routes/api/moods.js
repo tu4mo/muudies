@@ -26,10 +26,14 @@ const get = (req, res) => {
         mood: { $avg: '$mood' }
       }
     }
-  ], (err, moods) => {
+  ], (err, result) => {
     if (err) {
       return res.status(500).send(err)
     }
+
+    const moods = result.map(mood => ({
+      date: mood._id, mood: mood.mood.toFixed()
+    }))
 
     res.json(moods)
   })

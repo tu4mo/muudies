@@ -23,12 +23,12 @@ class Stats extends Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-    .then((res) => res.json())
+    .then((response) => response.json())
     .then((data) => {
       const moods = {}
 
       for (let mood of data) {
-        moods[mood._id] = mood.mood
+        moods[mood.date] = mood.mood
       }
 
       this.setState({ moods })
