@@ -21,10 +21,12 @@ class Header extends Component {
       return (
         <div className="header-buttons">
           <Button
-            onClick={() => browserHistory.push('/logout')}
+            dropdown={[
+              { label: 'Log Out', action: () => browserHistory.push('/logout') }
+            ]}
             style="bordered small"
           >
-            Log Out
+            Account
           </Button>
         </div>
       )

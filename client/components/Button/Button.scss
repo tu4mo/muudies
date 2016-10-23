@@ -1,12 +1,15 @@
 @import '../../styles/globals';
 
+.button__container {
+  display: inline-block;
+}
+
 .button {
   @include rounded;
   background-color: transparent;
   border: 0;
   color: #fff;
   cursor: pointer;
-  display: inline-block;
   font-size: 20px;
   font-weight: 300;
   line-height: 1;
@@ -54,8 +57,23 @@
       transform: scale(1.08);
     }
   }
+
+  &__dropdown {
+    @include rounded;
+    background-color: #fff;
+    list-style-type: none;
+    margin-top: 2px;
+    position: absolute;
+  }
+
+  &__dropdown-item {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 15px;
+    white-space: nowrap;
+  }
 }
 
-.button + .button {
+.button__container + .button__container {
   margin-left: 15px;
 }

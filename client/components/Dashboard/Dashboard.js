@@ -71,14 +71,14 @@ class Dashboard extends Component {
                 value={this.state.mood}
               />
             </div>
-            <p className="text-center">
+            <div className="text-center">
               <Button
                 style="white animated"
                 disabled={this.state.saveButtonDisabled}
                 onClick={this.handleSaveClick}>
                 {this.state.saveButtonTitle}
               </Button>
-            </p>
+            </div>
           </div>
         </div>
       </div>
