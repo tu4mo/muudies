@@ -34,6 +34,7 @@ class Button extends Component {
         </button>
         {this.state.dropdownVisible && dropdown.map(item => (
           <ul className="button__dropdown" key={item.label}>
+            <div className="button__dropdown-arrow" />
             <li className="button__dropdown-item" onClick={item.action}>{item.label}</li>
           </ul>
         ))}
