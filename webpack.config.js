@@ -64,7 +64,7 @@ module.exports = {
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.NoErrorsPlugin(),
       new CopyWebpackPlugin([
-        { from: 'client/images/favicon.png', to: 'images' }
+        { from: 'client/images', to: 'images' }
       ], {
         copyUnmodified: true
       }),
