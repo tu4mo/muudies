@@ -3,12 +3,20 @@
 .header {
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   padding: 10px;
+
+  @include ios {
+    padding-top: 20px;
+  }
 }
 
 .header-buttons {
   position: absolute;
   right: 10px;
   top: 0;
+
+  @include ios {
+    top: 10px;
+  }
 
   .button {
     margin-top: 10px;
