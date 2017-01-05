@@ -1,6 +1,6 @@
 import 'whatwg-fetch'
 
-module.exports = {
+export default {
   async login (email, password, cb) {
     if (localStorage.token) {
       cb(true)

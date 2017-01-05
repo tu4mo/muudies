@@ -1,5 +1,3 @@
-'use strict'
-
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -34,26 +32,34 @@ module.exports = {
   },
 
   module: {
-    loaders: (function () {
-      let loaders = []
+    rules: (function () {
+      let rules = []
 
-      loaders.push(
-        { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+      rules.push(
+        { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
       )
 
       if (isDev) {
-        loaders.push(
-          { test: /\.css$/, loaders: ['style', 'css'] },
-          { test: /\.scss$/, loaders: ['style', 'css', 'sass'] }
+        rules.push(
+          { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+          { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
         )
       } else {
-        loaders.push(
-          { test: /\.css$/, loader: ExtractTextPlugin.extract(['css']) },
-          { test: /\.scss$/, loader: ExtractTextPlugin.extract(['css', 'sass']) }
+        rules.push(
+          {
+            test: /\.(css|scss)$/,
+            loader: ExtractTextPlugin.extract({
+              fallbackLoader: 'style-loader',
+              loader: [
+                { loader: 'css-loader' },
+                { loader: 'sass-loader' }
+              ]
+            })
+          }
         )
       }
 
-      return loaders
+      return rules
     })()
   },
 
@@ -61,7 +67,6 @@ module.exports = {
     let plugins = []
 
     plugins.push(
-      new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.NoErrorsPlugin(),
       new CopyWebpackPlugin([
         { from: 'client/images', to: 'images' }
@@ -84,13 +89,16 @@ module.exports = {
             'NODE_ENV': JSON.stringify('production')
           }
         }),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
           compress: {
             warnings: false
           }
         }),
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin({
+          filename: 'styles.css',
+          disabled: false,
+          allChunks: true
+        })
       )
     }
 
