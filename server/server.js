@@ -1,5 +1,5 @@
 // Load environment variables
-require('dotenv').config({ silent: true })
+require('dotenv').config()
 
 // Import dependencies
 const bodyParser = require('body-parser')
