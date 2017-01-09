@@ -12,11 +12,9 @@ class Login extends Component {
     this.state = {
       error: false
     }
-
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit (event) {
+  handleSubmit = (event) => {
     event.preventDefault()
 
     const email = this.email.value

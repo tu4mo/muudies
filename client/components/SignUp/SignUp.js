@@ -8,11 +8,9 @@ import './SignUp.scss'
 class SignUp extends Component {
   constructor (props, context) {
     super(props)
-
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit (event) {
+  handleSubmit = (event) => {
     event.preventDefault()
 
     const email = this.email.value
