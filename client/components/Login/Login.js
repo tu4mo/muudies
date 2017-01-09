@@ -19,10 +19,10 @@ class Login extends Component {
   handleSubmit (event) {
     event.preventDefault()
 
-    const email = this.refs.email.value
-    const pass = this.refs.pass.value
+    const email = this.email.value
+    const password = this.password.value
 
-    auth.login(email, pass, (loggedIn) => {
+    auth.login(email, password, (loggedIn) => {
       if (!loggedIn) {
         this.setState({ error: true })
       }
@@ -33,8 +33,8 @@ class Login extends Component {
     return (
       <div className="login-box-container vertical-center">
         <form onSubmit={this.handleSubmit} className="box login-box-animation">
-          <input ref="email" placeholder="email" type="email" required />
-          <input ref="pass" placeholder="password" type="password" required />
+          <input ref={email => (this.email = email)} placeholder="email" type="email" required />
+          <input ref={password => (this.password = password)} placeholder="password" type="password" required />
           <div className="text-center">
             <Button style="orange" type="submit">Log In</Button>
             <Button style="orange" onClick={() => browserHistory.push('/signup')}>Sign Up</Button>

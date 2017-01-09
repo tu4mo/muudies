@@ -15,9 +15,9 @@ class SignUp extends Component {
   handleSubmit (event) {
     event.preventDefault()
 
-    const email = this.refs.email.value
-    const username = this.refs.username.value
-    const password = this.refs.password.value
+    const email = this.email.value
+    const username = this.username.value
+    const password = this.password.value
 
     auth.signUp(email, username, password, (success) => {
       if (success) {
@@ -30,9 +30,9 @@ class SignUp extends Component {
     return (
       <div className="vertical-center">
         <form onSubmit={this.handleSubmit} className="box">
-          <input ref="email" placeholder="email" type="email" required />
-          <input ref="username" placeholder="username" type="text" required />
-          <input ref="password" placeholder="password" type="password" required />
+          <input ref={email => (this.email = email)} placeholder="email" type="email" required />
+          <input ref={username => (this.username = username)} placeholder="username" type="text" required />
+          <input ref={password => (this.password = password)} placeholder="password" type="password" required />
           <div className="text-center">
             <Button style="orange" type="submit">Sign Up</Button>
             <Button onClick={() => browserHistory.push('/')} style="orange">Cancel</Button>
