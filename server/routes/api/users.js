@@ -21,6 +21,7 @@ const post = (req, res) => {
   // Save new user
   newUser.save((err) => {
     if (err) {
+      console.error(err)
       return res.sendStatus(409)
     }
 
