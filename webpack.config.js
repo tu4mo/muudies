@@ -33,11 +33,9 @@ module.exports = {
 
   module: {
     rules: (function () {
-      let rules = []
-
-      rules.push(
+      let rules = [
         { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
-      )
+      ]
 
       if (isDev) {
         rules.push(
@@ -64,10 +62,7 @@ module.exports = {
   },
 
   plugins: (function () {
-    let plugins = []
-
-    plugins.push(
-      new webpack.NoErrorsPlugin(),
+    let plugins = [
       new CopyWebpackPlugin([
         { from: 'client/images', to: 'images' }
       ], {
@@ -75,8 +70,9 @@ module.exports = {
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, './client/index.html')
-      })
-    )
+      }),
+      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en-gb)$/)
+    ]
 
     if (isDev) {
       plugins.push(
@@ -89,11 +85,7 @@ module.exports = {
             'NODE_ENV': JSON.stringify('production')
           }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false
-          }
-        }),
+        new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin({
           filename: 'styles.css',
           disabled: false,
