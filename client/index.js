@@ -20,7 +20,7 @@ render(
     <Route path="/" component={App}>
       <IndexRoute
         getComponent={(nextState, cb) => {
-          import('./components/Dashboard/Dashboard').then(Dashboard => {
+          import('./components/Dashboard').then(Dashboard => {
             cb(null, Dashboard.default)
           }).catch(err => {
             console.log('Failed to load Dashboard', err)
