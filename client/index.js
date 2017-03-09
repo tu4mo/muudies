@@ -6,7 +6,6 @@ import App from './components/App/App'
 import Login from './components/Login/Login'
 import Logout from './components/Logout/Logout'
 import SignUp from './components/SignUp/SignUp'
-import Stats from './components/Stats/Stats'
 
 import './styles/base.scss'
 
@@ -32,7 +31,6 @@ render(
       <Route path="login" component={Login} />
       <Route path="logout" component={Logout} />
       <Route path="signup" component={SignUp} />
-      <Route path="stats" component={Stats} onEnter={requireAuth} />
     </Route>
   </Router>,
   document.getElementById('root')
