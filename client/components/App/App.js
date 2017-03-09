@@ -1,18 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import auth from '../../auth'
-import Dashboard from '../Dashboard/Dashboard'
-import Login from '../Login/Login'
 import Header from '../Header/Header'
-
 import './App.scss'
 
 class App extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      loggedIn: auth.loggedIn()
-    }
+  state = {
+    loggedIn: auth.loggedIn()
   }
 
   updateAuth (loggedIn) {
@@ -32,7 +25,7 @@ class App extends Component {
           <Header loggedIn={this.state.loggedIn} />
         </div>
         <div className="app-body">
-          {!this.props.children ? (this.state.loggedIn ? <Dashboard /> : <Login />) : this.props.children}
+          {this.props.children}
         </div>
       </div>
     )

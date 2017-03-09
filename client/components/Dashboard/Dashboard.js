@@ -3,7 +3,6 @@ import Button from '../Button/Button'
 import Stats from '../Stats/Stats'
 import Slider from 'rc-slider'
 import Tooltip from 'rc-tooltip'
-import 'whatwg-fetch'
 
 import 'rc-slider/assets/index.css'
 import 'rc-tooltip/assets/bootstrap.css'

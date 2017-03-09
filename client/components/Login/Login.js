@@ -23,6 +23,8 @@ class Login extends Component {
     auth.login(email, password, (loggedIn) => {
       if (!loggedIn) {
         this.setState({ error: true })
+      } else {
+        browserHistory.push('/')
       }
     })
   }

@@ -26,9 +26,9 @@ module.exports = {
   })(),
 
   output: {
+    filename: 'muudy.js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    publicPath: '/'
   },
 
   module: {
