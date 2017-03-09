@@ -43,15 +43,15 @@
   background-color: transparent;
 }
 
-.rc-slider-tooltip {
+.rc-tooltip {
   &-inner {
     background-color: #fff;
     box-shadow: none;
-    font-weight: 300;
-    font-size: 20px;
-    height: 30px;
     color: $color-orange;
-    width: 50px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1;
+    text-align: center;
   }
 
   &-placement-top &-arrow {

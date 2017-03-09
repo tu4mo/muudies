@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Button from '../Button/Button'
 import Stats from '../Stats/Stats'
 import Slider from 'rc-slider'
+import Tooltip from 'rc-tooltip'
 import 'whatwg-fetch'
 
 import 'rc-slider/assets/index.css'
+import 'rc-tooltip/assets/bootstrap.css'
 import './Dashboard.scss'
 
-class Dashboard extends Component {
-  constructor (props) {
-    super(props)
+const Handle = Slider.Handle
 
-    this.state = {
-      mood: 50,
-      saveButtonDisabled: false,
-      saveButtonTitle: 'Save'
-    }
+class Dashboard extends Component {
+  state = {
+    mood: 50,
+    saveButtonDisabled: false,
+    saveButtonTitle: 'Save'
   }
 
   handleMoodChange = (value) => {
@@ -66,7 +66,7 @@ class Dashboard extends Component {
             <div className="slider-container">
               <h2>Rate Your Mood</h2>
               <Slider
-                tipTransitionName="rc-slider-tooltip-zoom-down"
+                handle={handle}
                 onChange={this.handleMoodChange}
                 value={this.state.mood}
               />
@@ -84,6 +84,26 @@ class Dashboard extends Component {
       </div>
     )
   }
+}
+
+const handle = (props) => {
+  const { value, dragging, index, ...restProps } = props
+  return (
+    <Tooltip
+      overlay={value}
+      visible={dragging}
+      placement="top"
+      key={index}
+    >
+      <Handle {...restProps} />
+    </Tooltip>
+  )
+}
+
+handle.propTypes = {
+  dragging: PropTypes.bool,
+  index: PropTypes.number,
+  value: PropTypes.number
 }
 
 export default Dashboard
