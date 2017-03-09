@@ -46,9 +46,9 @@ module.exports = {
         rules.push(
           {
             test: /\.(css|scss)$/,
-            loader: ExtractTextPlugin.extract({
-              fallbackLoader: 'style-loader',
-              loader: [
+            use: ExtractTextPlugin.extract({
+              fallback: 'style-loader',
+              use: [
                 { loader: 'css-loader' },
                 { loader: 'sass-loader' }
               ]
@@ -71,7 +71,12 @@ module.exports = {
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, './client/index.html')
       }),
-      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en-gb)$/)
+      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en-gb)$/),
+      new ExtractTextPlugin({
+        filename: 'styles.css',
+        disable: isDev,
+        allChunks: true
+      })
     ]
 
     if (isDev) {
@@ -85,12 +90,7 @@ module.exports = {
             'NODE_ENV': JSON.stringify('production')
           }
         }),
-        new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin({
-          filename: 'styles.css',
-          disabled: false,
-          allChunks: true
-        })
+        new webpack.optimize.UglifyJsPlugin()
       )
     }
 
