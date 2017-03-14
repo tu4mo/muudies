@@ -57,31 +57,31 @@ class Dashboard extends Component {
   }
 
   render () {
-    return (
-      <div>
-        <Stats />
-        <div className="dashboard">
-          <div className="dashboard-content">
-            <div className="slider-container">
-              <h2>Rate Your Mood</h2>
-              <Slider
-                handle={handle}
-                onChange={this.handleMoodChange}
-                value={this.state.mood}
-              />
-            </div>
-            <div className="text-center">
-              <Button
-                style="white animated"
-                disabled={this.state.saveButtonDisabled}
-                onClick={this.handleSaveClick}>
-                {this.state.saveButtonTitle}
-              </Button>
-            </div>
+    const { mood, saveButtonDisabled, saveButtonTitle } = this.state
+
+    return [
+      <Stats />,
+      <div className="dashboard">
+        <div className="dashboard-content">
+          <div className="slider-container">
+            <h2>Rate Your Mood</h2>
+            <Slider
+              handle={handle}
+              onChange={this.handleMoodChange}
+              value={mood}
+            />
+          </div>
+          <div className="text-center">
+            <Button
+              style="white animated"
+              disabled={saveButtonDisabled}
+              onClick={this.handleSaveClick}>
+              {saveButtonTitle}
+            </Button>
           </div>
         </div>
       </div>
-    )
+    ]
   }
 }
 
