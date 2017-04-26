@@ -1,15 +1,11 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Button from '../Button/Button'
-import { browserHistory } from 'react-router'
 import auth from '../../auth'
 
 import './SignUp.scss'
 
 class SignUp extends Component {
-  constructor (props, context) {
-    super(props)
-  }
-
   handleSubmit = (event) => {
     event.preventDefault()
 
@@ -19,7 +15,7 @@ class SignUp extends Component {
 
     auth.signUp(email, username, password, (success) => {
       if (success) {
-        this.context.router.push('/')
+        this.props.history.push('/')
       }
     })
   }
@@ -33,15 +29,15 @@ class SignUp extends Component {
           <input ref={password => (this.password = password)} placeholder="password" type="password" required />
           <div className="text-center">
             <Button style="orange" type="submit">Sign Up</Button>
-            <Button onClick={() => browserHistory.push('/')} style="orange">Cancel</Button>
+            <Button onClick={() => this.props.history.push('/')} style="orange">Cancel</Button>
           </div>
         </form>
       </div>
     )
   }
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired
+  static propTypes = {
+    history: PropTypes.object.isRequired
   }
 }
 

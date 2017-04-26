@@ -1,7 +1,6 @@
-import React, { Component, PropTypes } from 'react'
-import { browserHistory } from 'react-router'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Button from '../Button/Button'
-
 import './Header.scss'
 
 /*
@@ -12,17 +11,13 @@ const menuItems = [
 */
 
 class Header extends Component {
-  constructor (props, context) {
-    super(props)
-  }
-
   renderHeaderButtons () {
     if (this.props.loggedIn) {
       return (
         <div className="header-buttons">
           <Button
             dropdown={[
-              { label: 'Log Out', action: () => browserHistory.push('/logout') }
+              { label: 'Log Out', action: () => this.props.history.push('/logout') }
             ]}
             style="bordered small"
           >
@@ -51,11 +46,8 @@ class Header extends Component {
     )
   }
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  }
-
   static propTypes = {
+    history: PropTypes.object.isRequired,
     loggedIn: PropTypes.bool.isRequired
   }
 }

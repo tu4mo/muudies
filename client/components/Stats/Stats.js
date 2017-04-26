@@ -4,12 +4,8 @@ import moment from 'moment'
 import './Stats.scss'
 
 class Stats extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      moods: {}
-    }
+  state = {
+    moods: {}
   }
 
   componentWillMount () {

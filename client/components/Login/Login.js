@@ -1,17 +1,13 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Button from '../Button/Button'
-import { browserHistory } from 'react-router'
 import auth from '../../auth'
 
 import './Login.scss'
 
 class Login extends Component {
-  constructor (props, context) {
-    super(props)
-
-    this.state = {
-      error: false
-    }
+  state = {
+    error: false
   }
 
   handleSubmit = (event) => {
@@ -24,7 +20,7 @@ class Login extends Component {
       if (!loggedIn) {
         this.setState({ error: true })
       } else {
-        browserHistory.push('/')
+        this.props.history.push('/')
       }
     })
   }
@@ -37,7 +33,7 @@ class Login extends Component {
           <input ref={password => (this.password = password)} placeholder="password" type="password" required />
           <div className="text-center">
             <Button style="orange" type="submit">Log In</Button>
-            <Button style="orange" onClick={() => browserHistory.push('/signup')}>Sign Up</Button>
+            <Button style="orange" onClick={() => this.props.history.push('/signup')}>Sign Up</Button>
           </div>
           {this.state.error && (<p className="error">Invalid username or password</p>)}
         </form>
@@ -45,8 +41,8 @@ class Login extends Component {
     )
   }
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired
+  static propTypes = {
+    history: PropTypes.object.isRequired
   }
 }
 

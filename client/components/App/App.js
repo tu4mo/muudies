@@ -1,6 +1,11 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import auth from '../../auth'
-import Header from '../Header/Header'
+import asyncComponent from '../../asyncComponent'
+import Header from '../Header'
+import Login from '../Login'
+import Logout from '../Logout'
+import SignUp from '../SignUp'
 import './App.scss'
 
 class App extends Component {
@@ -19,20 +24,25 @@ class App extends Component {
   }
 
   render () {
-    return (
-      <div className="app">
-        <div className="app-header">
-          <Header loggedIn={this.state.loggedIn} />
-        </div>
-        <div className="app-body">
-          {this.props.children}
-        </div>
-      </div>
+    const Dashboard = asyncComponent(() =>
+      import('../Dashboard').then(module => module.default)
     )
-  }
 
-  static propTypes = {
-    children: PropTypes.node
+    return (
+      <Router>
+        <div className="app">
+          <div className="app-header">
+            <Header loggedIn={this.state.loggedIn} />
+          </div>
+          <div className="app-body">
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/login" component={Login} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/signup" component={SignUp} />
+          </div>
+        </div>
+      </Router>
+    )
   }
 }
 
