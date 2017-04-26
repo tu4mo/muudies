@@ -62,7 +62,6 @@
     @include rounded;
     animation: dropdown-animation .2s ease-in-out;
     background-color: #fff;
-    list-style-type: none;
     margin-top: 6px;
     position: absolute;
 
@@ -79,9 +78,10 @@
 
     &-item {
       color: #666;
-      cursor: pointer;
+      display: block;
       font-size: 16px;
       padding: 10px 15px;
+      text-decoration: none;
       white-space: nowrap;
     }
   }

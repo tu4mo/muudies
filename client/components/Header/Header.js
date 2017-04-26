@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import './Header.scss'
 
@@ -12,13 +13,13 @@ const menuItems = [
 
 class Header extends Component {
   renderHeaderButtons () {
+    const accountDropdown = <Link to="/logout" className="button__dropdown-item">Log Out</Link>
+
     if (this.props.loggedIn) {
       return (
         <div className="header-buttons">
           <Button
-            dropdown={[
-              { label: 'Log Out', action: () => this.props.history.push('/logout') }
-            ]}
+            dropdown={accountDropdown}
             style="bordered small"
           >
             Account
@@ -47,7 +48,6 @@ class Header extends Component {
   }
 
   static propTypes = {
-    history: PropTypes.object.isRequired,
     loggedIn: PropTypes.bool.isRequired
   }
 }
