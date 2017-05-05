@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from '../Button/Button'
-import Stats from '../Stats/Stats'
+import {
+  Button,
+  Stats
+} from '..'
 import Slider from 'rc-slider'
 import Tooltip from 'rc-tooltip'
 import auth from '../../auth'

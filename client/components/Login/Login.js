@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from '../Button/Button'
+import { Button } from '..'
 import auth from '../../auth'
 
 import './Login.scss'

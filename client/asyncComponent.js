@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default loader => class AsyncComponent extends React.Component {
+export default loader => class AsyncComponent extends Component {
   constructor (props) {
     super(props)
 

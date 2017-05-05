@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import Button from '../Button/Button'
+import { Button } from '..'
 import './Header.scss'
 
 /*

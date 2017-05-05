@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import auth from '../../auth'
 import asyncComponent from '../../asyncComponent'
-import Header from '../Header'
-import Login from '../Login'
-import Logout from '../Logout'
-import SignUp from '../SignUp'
+import {
+  Header,
+  Login,
+  Logout,
+  SignUp
+} from '..'
+
 import './App.scss'
 
 class App extends Component {
@@ -25,7 +28,7 @@ class App extends Component {
 
   render () {
     const Dashboard = asyncComponent(() =>
-      import('../Dashboard').then(module => module.default)
+      import('../Dashboard/Dashboard').then(module => module.default)
     )
 
     return (
