@@ -70,8 +70,8 @@ class Dashboard extends Component {
     const { mood, saveButtonDisabled, saveButtonTitle } = this.state
 
     return [
-      <Stats />,
-      <div className="dashboard">
+      <Stats key="stats" />,
+      <div key="dashboard" className="dashboard">
         <div className="dashboard-content">
           <div className="slider-container">
             <h2>Rate Your Mood</h2>
