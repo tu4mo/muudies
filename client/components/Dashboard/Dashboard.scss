@@ -36,6 +36,11 @@
   margin-top: -16px;
   margin-left: -20px;
   width: 40px;
+
+  &:active {
+    box-shadow: inherit;
+    border: inherit;
+  }
 }
 
 .rc-slider-track {
