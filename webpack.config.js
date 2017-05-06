@@ -14,7 +14,7 @@ module.exports = {
 
     if (isDev) {
       entries.push(
-        'webpack-hot-middleware/client'
+        'react-hot-loader/patch'
       )
     }
 
@@ -79,11 +79,7 @@ module.exports = {
       })
     ]
 
-    if (isDev) {
-      plugins.push(
-        new webpack.HotModuleReplacementPlugin()
-      )
-    } else {
+    if (!isDev) {
       plugins.push(
         new webpack.DefinePlugin({
           'process.env': {
@@ -97,5 +93,15 @@ module.exports = {
     }
 
     return plugins
-  })()
+  })(),
+
+  devServer: {
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        secure: false
+      }
+    }
+  }
 }

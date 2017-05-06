@@ -4,13 +4,6 @@ import { Link } from 'react-router-dom'
 import { Button } from '..'
 import './Header.scss'
 
-/*
-const menuItems = [
-  { to: '/', label: 'Rate' },
-  { to: '/stats', label: 'Stats' }
-]
-*/
-
 class Header extends Component {
   renderHeaderButtons () {
     const accountDropdown = <Link to="/logout" className="button__dropdown-item">Log Out</Link>
@@ -30,20 +23,11 @@ class Header extends Component {
   }
 
   render () {
-    /*
-    const renderedMenuItems = menuItems.map((item) => {
-      return <Link key={item.to} to={item.to} className={'menu-item' + (this.context.router.isActive(item.to, true) ? ' menu-item-active' : '')}>{item.label}</Link>
-    })
-    */
-
     return (
-      <div>
-        <header className="header">
-          <h1 alt="Muudy">Muudy</h1>
-          {this.renderHeaderButtons()}
-        </header>
-        {/* this.props.loggedIn && <nav className="menu">{renderedMenuItems}</nav> */}
-      </div>
+      <header className="header">
+        <h1 className="header-logo"><Link to="/">Muudy</Link></h1>
+        {this.renderHeaderButtons()}
+      </header>
     )
   }
 

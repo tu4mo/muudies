@@ -26,19 +26,6 @@ const port = process.env.PORT || 3000
 // Connect to database
 mongoose.connect(process.env.MONGODB_URI)
 
-// Set up webpack middlewares
-if (process.env.NODE_ENV === 'development') {
-  const webpack = require('webpack')
-  const webpackConfig = require('../webpack.config')
-  const compiler = webpack(webpackConfig)
-
-  app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true, publicPath: webpackConfig.output.publicPath
-  }))
-
-  app.use(require('webpack-hot-middleware')(compiler))
-}
-
 // Serve static files
 app.use(express.static('dist'))
 

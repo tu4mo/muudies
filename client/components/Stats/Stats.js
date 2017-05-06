@@ -8,7 +8,7 @@ class Stats extends Component {
     moods: {}
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.getStats()
   }
 

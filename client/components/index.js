@@ -1,8 +1,4 @@
-export { default as App } from './App/App'
 export { default as Button } from './Button/Button'
-export { default as Dashboard } from './Dashboard/Dashboard'
 export { default as Header } from './Header/Header'
 export { default as Login } from './Login/Login'
 export { default as Logout } from './Logout/Logout'
-export { default as SignUp } from './SignUp/SignUp'
-export { default as Stats } from './Stats/Stats'

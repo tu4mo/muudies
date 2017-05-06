@@ -9,6 +9,21 @@
   }
 }
 
+.header-logo {
+  color: #fff;
+  font-family: $font-heading;
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+  text-transform: lowercase;
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
+
 .header-buttons {
   position: absolute;
   right: 10px;
